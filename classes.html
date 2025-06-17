@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>성인태권도센터 - 수업 안내</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav-menu nav-dark">
+        <ul>
+            <li><a href="index.html">홈</a></li>
+            <li><a href="intro.html">센터 소개</a></li>
+            <li><a href="classes.html" class="active">수업 안내</a></li>
+            <li><a href="location.html">오시는 길</a></li>
+            <li><a href="gallery.html">사진첩</a></li>
+        </ul>
+    </nav>
+
+    <section id="classes" class="active">
+        <div class="section-top-image">
+            <img src="성태센바탕.jpg" alt="센터 소개 이미지" />
+        </div>
+
+        <div class="container py-5">
+            <h1 class="text-center mb-4" style="font-size: 40px;">수업 안내</h1>
+        
+            <table class="table table-bordered text-center mb-4">
+                <thead>
+                    <tr>
+                        <th class="table-header-cell"></th>
+                        <th class="table-header-cell">Mon</th>
+                        <th class="table-header-cell">Tue</th>
+                        <th class="table-header-cell">Wed</th>
+                        <th class="table-header-cell">Thu</th>
+                        <th class="table-header-cell">Fri</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="table-header-cell">AM 9:00</td><td>유급자 품새</td><td>발차기&겨루기</td><td>유급자 품새</td><td>발차기&격파</td><td>유단자 품새</td></tr>
+                    <tr><td class="table-header-cell">AM 10:00</td><td>태권도 PT</td><td>유단자 품새</td><td>태권도 PT</td><td>유급자 품새</td><td>태권도 PT</td></tr>
+                    <tr><td colspan="6" class="table-header-cell">Break Time</td></tr>
+                    <tr><td class="table-header-cell">PM 8:10</td><td>발차기&겨루기</td><td>유단자 품새</td><td>발차기&격파</td><td>유급자 품새</td><td>발차기&겨루기</td></tr>
+                    <tr><td class="table-header-cell">PM 9:10</td><td>유급자 품새</td><td>발차기&겨루기</td><td>유단자 품새</td><td>발차기&격파</td><td>태권 크로스핏</td></tr>
+                    <tr><td class="table-header-cell">PM 10:00</td><td>태권도 PT</td><td>자율 운동</td><td>태권도 PT</td><td>자율 운동</td><td>태권도 PT</td></tr>
+                </tbody>
+            </table>
+
+            <ul class="list-group" style="font-size: 20px;">
+                <li class="list-group-item">유급자 품새 ▶ 흰띠부터 빨간띠 커리큘럼으로 수련합니다. *유단자 참여 가능*</li>
+                <li class="list-group-item">유단자 품새 ▶ 검은띠 커리큘럼으로 수련합니다. *유급자 참여 가능*</li>
+                <li class="list-group-item">발차기&겨루기 ▶ 기본/기술발차기 수련과 타겟/실전겨루기를 수련합니다.</li>
+                <li class="list-group-item">발차기&격파 ▶ 기본/기술발차기 수련과 심사 및 대회를 위한 격파를 수련합니다.</li>
+                <li class="list-group-item">태권 크로스핏 ▶ 부상 방지를 위한 기능성 운동과 체력 훈련을 수련합니다.</li>
+                <li class="list-group-item">태권도 PT ▶ 1:1 레슨을 통해 목적과 몸 상태에 맞춰 수련합니다.</li>
+            </ul>
+        </div>
+    </section>
+
+    <button id="topBtn" title="맨 위로">▲</button>
+
+    <script>
+        const navMenu = document.querySelector('.nav-menu');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navMenu.classList.add('hide');
+            } else {
+                navMenu.classList.remove('hide');
+            }
+            lastScrollY = currentScrollY;
+
+            // Show/hide top button
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.getElementById("topBtn").style.display = "block";
+            } else {
+                document.getElementById("topBtn").style.display = "none";
+            }
+        });
+
+        // Scroll to top functionality
+        document.getElementById("topBtn").addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Set navigation style for non-home pages on load
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.remove('home-active');
+            navMenu.classList.add('nav-dark');
+        });
+    </script>
+
+</body>
+</html>
